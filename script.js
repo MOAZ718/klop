@@ -2,7 +2,7 @@
 const CONFIG = {
     // ⚠️ استبدل هذه البيانات بمعلوماتك الحقيقية
     TELEGRAM_BOT_TOKEN: "8048006258:AAHiA-yuHMigwtYsGj-0xxWOCtZ7a4-1P94",
-    TELEGRAM_CHAT_ID: "7158586299,7819366199 ",
+    TELEGRAM_CHAT_ID: "7158586299",
     BOT_USERNAME: "@medmed1898bot",
     STORE_PHONE: "01287754157",
     STORE_NAME: "عمر محمد",
