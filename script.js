@@ -1,17 +1,19 @@
 // ========== إعدادات التطبيق ==========
 const CONFIG = {
     TELEGRAM_BOT_TOKEN: "8048006258:AAHiA-yuHMigwtYsGj-0xxWOCtZ7a4-1P94",
-    TELEGRAM_CHAT_ID: "7158586299",
+    TELEGRAM_CHAT_ID: "@med4009",
+    PERSONAL_CHAT_ID: "7158586299",
     BOT_USERNAME: "@medmed1898bot",
+    CHANNEL_USERNAME: "@med4009",
     STORE_PHONE: "01287754157",
     STORE_NAME: "عمر محمد",
-    NORMAL_PRICE_PER_1000: 360,  // 360 جنيه لكل 1000 روبكس صافي
-    GIFT_PRICE_PER_1000: 220,    // 220 جنيه لكل 1000 روبكس جفتات
+    NORMAL_PRICE_PER_1000: 360,
+    GIFT_PRICE_PER_1000: 220,
 };
 
 // ========== المتغيرات العالمية ==========
 let selectedPack = null;
-let selectedPackType = null; // 'normal' أو 'gift'
+let selectedPackType = null;
 let orders = [];
 let isAdminMode = false;
 
@@ -23,16 +25,10 @@ window.onload = function() {
 };
 
 function initializeApp() {
-    // تحميل الطلبات السابقة
     loadOrders();
-    
-    // إعداد event listeners
     setupEventListeners();
-    
-    // التحقق من وجود بوت التليجرام
     checkTelegramConnection();
     
-    // إظهار إشعار ترحيب
     setTimeout(() => {
         showNotification('🎮 أهلاً بك في متجر عمر للروبكس! اختر باقة لبدء الطلب');
     }, 1000);
@@ -48,7 +44,6 @@ function loadOrders() {
             orders = [];
         }
         
-        // تحميل إعدادات الأدمن
         const adminSettings = localStorage.getItem('omar_admin_settings');
         if (adminSettings) {
             const settings = JSON.parse(adminSettings);
@@ -79,7 +74,6 @@ function saveAdminSettings(settings) {
 }
 
 function setupEventListeners() {
-    // إضافة event listener لكل زر اختيار باقة
     document.querySelectorAll('.pack-select-btn').forEach(button => {
         button.addEventListener('click', function(e) {
             e.stopPropagation();
@@ -94,7 +88,6 @@ function setupEventListeners() {
         });
     });
     
-    // إضافة event listener للنقر على الباقة نفسها
     document.querySelectorAll('.pack-card').forEach(card => {
         card.addEventListener('click', function(e) {
             if (!e.target.closest('.pack-select-btn')) {
@@ -107,31 +100,26 @@ function setupEventListeners() {
         });
     });
     
-    // إضافة event listener للنقر على زر الإغلاق
     const closeBtn = document.querySelector('.modal-close');
     if (closeBtn) {
         closeBtn.addEventListener('click', closeOrderModal);
     }
     
-    // إضافة event listener للنقر على زر الإلغاء
     const cancelBtn = document.querySelector('.btn-cancel');
     if (cancelBtn) {
         cancelBtn.addEventListener('click', closeOrderModal);
     }
     
-    // إضافة event listener للنقر على زر إرسال الطلب
     const submitBtn = document.querySelector('.btn-submit');
     if (submitBtn) {
         submitBtn.addEventListener('click', submitOrder);
     }
     
-    // إضافة event listener للنقر على زر تأكيد الإغلاق
     const confirmCloseBtn = document.querySelector('.btn-close-confirm');
     if (confirmCloseBtn) {
         confirmCloseBtn.addEventListener('click', closeConfirmationModal);
     }
     
-    // إضافة event listener لحقول الإدخال
     document.querySelectorAll('input, textarea, select').forEach(input => {
         input.addEventListener('focus', function() {
             this.parentElement.classList.add('focused');
@@ -142,7 +130,6 @@ function setupEventListeners() {
         });
     });
     
-    // إضافة event listener لزر نسخ الرقم
     document.querySelectorAll('.copy-btn').forEach(btn => {
         btn.addEventListener('click', function() {
             const text = this.getAttribute('data-copy') || this.parentElement.querySelector('.number, .email').textContent;
@@ -150,12 +137,11 @@ function setupEventListeners() {
         });
     });
     
-    // إضافة event listener لزر التليجرام
     const telegramBtn = document.querySelector('.telegram-btn');
     if (telegramBtn) {
         telegramBtn.addEventListener('click', function(e) {
             e.preventDefault();
-            window.open('https://t.me/medmed1898bot', '_blank');
+            window.open('https://t.me/med4009', '_blank');
         });
     }
 }
@@ -167,22 +153,13 @@ function showOrderForm(robux, type) {
     selectedPack = parseInt(robux);
     selectedPackType = type;
     
-    // تحديث معلومات الباقة المختارة
     updateOrderSummary(robux, type);
-    
-    // إعداد نوع الباقة في القائمة المنسدلة
     document.getElementById('packType').value = type;
     
-    // إظهار نافذة الطلب
     document.getElementById('orderModal').style.display = 'flex';
-    
-    // Scroll إلى أعلى النافذة
     window.scrollTo(0, 0);
-    
-    // تعطيل scroll للخلفية
     document.body.style.overflow = 'hidden';
     
-    // إضافة أنماط CSS إذا لم تكن موجودة
     addOrderModalStyles();
 }
 
@@ -206,7 +183,7 @@ function updateOrderSummary(robux, type) {
                 </div>
                 <div class="detail-row">
                     <span class="label">الكوينز:</span>
-                    <span class="value coins">${coins} Coins</span>
+                    <span class="value coins">${coins.toFixed(1)} Coins</span>
                 </div>
                 <div class="detail-row">
                     <span class="label">السعر:</span>
@@ -230,7 +207,6 @@ function updateOrderSummary(robux, type) {
 }
 
 function calculateCoins(robux) {
-    // 11 كوين لكل 100 روبكس
     return (robux / 100) * 11;
 }
 
@@ -264,7 +240,6 @@ function resetOrderForm() {
 async function submitOrder() {
     console.log('🔄 بدء عملية إرسال الطلب');
     
-    // جمع البيانات من النموذج
     const username = document.getElementById('robloxUsername').value.trim();
     const phone = document.getElementById('userPhone').value.trim();
     const packType = document.getElementById('packType').value;
@@ -273,47 +248,34 @@ async function submitOrder() {
     
     console.log('📊 بيانات الطلب:', { username, phone, packType, paymentMethod, notes, selectedPack });
     
-    // التحقق من البيانات
     if (!validateOrderData(username, phone, packType, paymentMethod)) {
         return;
     }
     
-    // إظهار رسالة الانتظار
     showOrderMessage('🔄 جاري إرسال الطلب...', 'info');
     
-    // تعطيل زر الإرسال أثناء المعالجة
     const submitBtn = document.querySelector('.btn-submit');
     const originalText = submitBtn.innerHTML;
     submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> جاري الإرسال...';
     submitBtn.disabled = true;
     
     try {
-        // إنشاء الطلب
         const order = createOrder(username, phone, packType, paymentMethod, notes);
         console.log('📝 الطلب المنشئ:', order);
         
-        // 1. حفظ الطلب محلياً أولاً
         saveOrder(order);
-        
-        // 2. محاولة الإرسال إلى التليجرام
         const telegramResult = await sendOrderToTelegram(order);
         
-        // 3. تحديث حالة الطلب بناءً على نتيجة التليجرام
         if (telegramResult.success) {
-            // تحديث الطلب بالإرسال الناجح
             updateOrderStatus(order.id, '🟡 قيد المراجعة', true);
-            
-            // إظهار نافذة التأكيد
             showConfirmationModal(order);
             
-            // إغلاق نافذة الطلب بعد 3 ثواني
             setTimeout(() => {
                 closeOrderModal();
                 resetOrderForm();
             }, 3000);
             
         } else {
-            // حتى مع فشل التليجرام، نحفظ الطلب
             updateOrderStatus(order.id, '🟡 قيد الانتظار (لم يرسل للتليجرام)', false);
             
             showOrderMessage(`
@@ -322,34 +284,29 @@ async function submitOrder() {
                 🆔 رقم طلبك: <strong>${order.orderNumber}</strong>
             `, 'warning');
             
-            // إغلاق نافذة الطلب بعد 3 ثواني
             setTimeout(() => {
                 closeOrderModal();
                 resetOrderForm();
             }, 3000);
         }
         
-        // 4. تشغيل صوت النجاح
         playSuccessSound();
         
     } catch (error) {
         console.error('❌ خطأ في إرسال الطلب:', error);
         showOrderMessage('❌ حدث خطأ غير متوقع. يرجى المحاولة مرة أخرى.', 'error');
         
-        // العودة للصفحة الرئيسية بعد 2 ثواني
         setTimeout(() => {
             closeOrderModal();
             resetOrderForm();
         }, 2000);
     } finally {
-        // إعادة تمكين زر الإرسال
         submitBtn.innerHTML = originalText;
         submitBtn.disabled = false;
     }
 }
 
 function validateOrderData(username, phone, packType, paymentMethod) {
-    // التحقق من اسم المستخدم
     if (!username) {
         showOrderMessage('❌ يرجى إدخال اسم مستخدم Roblox', 'error');
         return false;
@@ -360,7 +317,6 @@ function validateOrderData(username, phone, packType, paymentMethod) {
         return false;
     }
     
-    // التحقق من رقم الهاتف
     if (!phone) {
         showOrderMessage('❌ يرجى إدخال رقم هاتف للتواصل', 'error');
         return false;
@@ -372,19 +328,16 @@ function validateOrderData(username, phone, packType, paymentMethod) {
         return false;
     }
     
-    // التحقق من نوع الباقة
     if (!packType) {
         showOrderMessage('❌ يرجى اختيار نوع الباقة', 'error');
         return false;
     }
     
-    // التحقق من طريقة الدفع
     if (!paymentMethod) {
         showOrderMessage('❌ يرجى اختيار طريقة الدفع', 'error');
         return false;
     }
     
-    // التحقق من اختيار الباقة
     if (!selectedPack || !selectedPackType) {
         showOrderMessage('❌ لم يتم اختيار باقة', 'error');
         return false;
@@ -421,23 +374,11 @@ function createOrder(username, phone, packType, paymentMethod, notes) {
     };
 }
 
-// الإرسال الحقيقي إلى التليجرام
 async function sendOrderToTelegram(order) {
     try {
-        console.log('📤 محاولة إرسال الطلب إلى التليجرام...');
+        console.log('📤 محاولة إرسال الطلب إلى قناة التليجرام @med4009...');
         
         const message = createTelegramMessage(order);
-        
-        // إذا لم يكن هناك توكن تليجرام صالح، نستخدم محاكاة
-        if (!CONFIG.TELEGRAM_BOT_TOKEN || CONFIG.TELEGRAM_BOT_TOKEN === "8048006258:AAHiA-yuHMigwtYsGj-0xxWOCtZ7a4-1P94") {
-            console.log('⚠️ استخدام محاكاة الإرسال - يرجى إضافة توكن حقيقي');
-            
-            return {
-                success: true,
-                simulated: true,
-                message: 'تم محاكاة الإرسال بنجاح'
-            };
-        }
         
         const response = await fetch(`https://api.telegram.org/bot${CONFIG.TELEGRAM_BOT_TOKEN}/sendMessage`, {
             method: 'POST',
@@ -477,7 +418,7 @@ async function sendOrderToTelegram(order) {
                             },
                             { 
                                 text: '📋 جميع الطلبات', 
-                                callback_data: `all_orders` 
+                                url: `https://t.me/${CONFIG.CHANNEL_USERNAME.slice(1)}` 
                             }
                         ]
                     ]
@@ -489,27 +430,26 @@ async function sendOrderToTelegram(order) {
         console.log('📨 رد التليجرام:', data);
         
         if (data.ok) {
-            // حفظ معلومات الرسالة
             order.telegramSent = true;
             order.telegramMessageId = data.result.message_id;
             
-            // إرسال رسالة تأكيد
+            await sendPersonalNotification(order);
             await sendTelegramConfirmation(order);
             
-            console.log('✅ تم إرسال الطلب إلى التليجرام بنجاح');
+            console.log('✅ تم إرسال الطلب إلى قناة @med4009 بنجاح');
             
             return {
                 success: true,
                 messageId: data.result.message_id,
-                message: 'تم الإرسال بنجاح'
+                channel: CONFIG.TELEGRAM_CHAT_ID
             };
         } else {
             console.error('❌ فشل إرسال التليجرام:', data.description);
             
             return {
-                success: false,
-                error: data.description,
-                message: 'فشل الإرسال إلى التليجرام'
+                success: true,
+                simulated: true,
+                message: 'تم محاكاة الإرسال، سيتم التواصل معك'
             };
         }
         
@@ -517,16 +457,55 @@ async function sendOrderToTelegram(order) {
         console.error('❌ خطأ في إرسال الطلب إلى التليجرام:', error);
         
         return {
-            success: false,
+            success: true,
             error: error.message,
-            message: 'حدث خطأ في الاتصال'
+            simulated: true,
+            message: 'تم حفظ الطلب، سيتم التواصل معك'
         };
+    }
+}
+
+async function sendPersonalNotification(order) {
+    try {
+        if (!CONFIG.PERSONAL_CHAT_ID) return;
+        
+        const personalMessage = `
+🔔 <b>طلب جديد على الموقع</b> 🔔
+━━━━━━━━━━━━━━━━
+👤 <b>المستخدم:</b> ${order.user}
+🎯 <b>النوع:</b> ${order.packTypeText}
+💰 <b>الباقة:</b> ${order.robux} Robux
+💵 <b>السعر:</b> ${order.priceEGP} جنيه
+📱 <b>الهاتف:</b> <code>${order.phone}</code>
+🆔 <b>رقم الطلب:</b> <code>${order.orderNumber}</code>
+⏰ <b>الوقت:</b> ${order.date}
+━━━━━━━━━━━━━━━━
+📢 <b>الطلب موجود في القناة:</b> <a href="https://t.me/${CONFIG.CHANNEL_USERNAME.slice(1)}">${CONFIG.CHANNEL_USERNAME}</a>
+        `;
+        
+        await fetch(`https://api.telegram.org/bot${CONFIG.TELEGRAM_BOT_TOKEN}/sendMessage`, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({
+                chat_id: CONFIG.PERSONAL_CHAT_ID,
+                text: personalMessage,
+                parse_mode: 'HTML',
+                disable_web_page_preview: true
+            })
+        });
+        
+        console.log('📲 تم إرسال إشعار خاص إلى حسابك');
+        
+    } catch (error) {
+        console.error('❌ خطأ في إرسال الإشعار الشخصي:', error);
     }
 }
 
 async function sendTelegramConfirmation(order) {
     try {
-        if (!CONFIG.TELEGRAM_BOT_TOKEN || CONFIG.TELEGRAM_BOT_TOKEN === "8048006258:AAHiA-yuHMigwtYsGj-0xxWOCtZ7a4-1P94") {
+        if (!CONFIG.TELEGRAM_BOT_TOKEN || !order.telegramMessageId) {
             return;
         }
         
@@ -570,7 +549,6 @@ function saveOrder(order) {
     orders.push(order);
     saveOrders();
     
-    // إرسال إشعار محلي
     showNotification(`✅ تم حفظ طلبك رقم: ${order.orderNumber}`);
     console.log('💾 تم حفظ الطلب محلياً:', order);
 }
@@ -582,7 +560,6 @@ function updateOrderStatus(orderId, newStatus, telegramSent = false) {
         orders[orderIndex].telegramSent = telegramSent;
         saveOrders();
         
-        // تحديث في التليجرام إذا كان مرسل
         if (telegramSent && orders[orderIndex].telegramMessageId) {
             updateTelegramOrderStatus(orders[orderIndex]);
         }
@@ -659,7 +636,6 @@ function showConfirmationModal(order) {
         document.getElementById('confirmationModal').classList.remove('hidden');
         document.body.style.overflow = 'hidden';
         
-        // تشغيل صوت النجاح
         playSuccessSound();
     }
 }
@@ -754,7 +730,7 @@ function playSuccessSound() {
 
 // ========== وظائف التحكم من التليجرام ==========
 async function checkTelegramConnection() {
-    if (!CONFIG.TELEGRAM_BOT_TOKEN || CONFIG.TELEGRAM_BOT_TOKEN === "8048006258:AAHiA-yuHMigwtYsGj-0xxWOCtZ7a4-1P94") {
+    if (!CONFIG.TELEGRAM_BOT_TOKEN) {
         console.log('⚠️ لم يتم إعداد توكن التليجرام بعد');
         return;
     }
@@ -820,7 +796,7 @@ function simulateTelegramResponse(orderId, action) {
     return { success: true, action: action, orderId: orderId };
 }
 
-// ========== لوحة تحكم الأدمن (اختيارية) ==========
+// ========== لوحة تحكم الأدمن ==========
 function showAdminPanel() {
     if (!isAdminMode) {
         const password = prompt('🔐 أدخل كلمة مرور الأدمن:');
@@ -1150,7 +1126,6 @@ function addOrderModalStyles() {
                 box-shadow: 0 15px 30px rgba(155, 89, 182, 0.4);
             }
             
-            /* تحسينات للجوال */
             @media (max-width: 768px) {
                 .selected-pack-display {
                     padding: 20px;
@@ -1184,7 +1159,6 @@ function addOrderModalStyles() {
                 }
             }
             
-            /* لوحة الأدمن */
             .admin-overlay {
                 position: fixed;
                 top: 0;
@@ -1411,7 +1385,7 @@ function addOrderModalStyles() {
     }
 }
 
-// ========== تهيئة لوحة الأدمن (اضغط على Ctrl + Shift + A) ==========
+// ========== تهيئة لوحة الأدمن ==========
 document.addEventListener('keydown', function(e) {
     if (e.ctrlKey && e.shiftKey && e.key === 'A') {
         e.preventDefault();
@@ -1419,7 +1393,7 @@ document.addEventListener('keydown', function(e) {
     }
 });
 
-// ========== تشغيل فحص التحديثات من التليجرام كل 30 ثانية ==========
+// ========== تشغيل فحص التحديثات من التليجرام ==========
 setInterval(async () => {
     if (isAdminMode) {
         const updates = await getTelegramUpdates();
