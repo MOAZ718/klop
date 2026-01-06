@@ -106,28 +106,27 @@
     </div>
 </section>
 
-<!-- باقات الروبكس -->
+<!-- باقات الروبكس الصافي -->
 <section class="packs-section">
     <div class="section-title">
-        <h2><i class="fas fa-gift"></i> باقات الروبكس</h2>
-        <p class="section-subtitle">اختر الباقة المناسبة واحصل على روبكس فوراً</p>
+        <h2><i class="fas fa-coins"></i> الروبكس الصافي</h2>
+        <p class="section-subtitle">أسعار خاصة للروبكس العادي - شحن فوري</p>
     </div>
     
-    <div class="packs-grid" id="packCards">
-        <!-- الباقة 125 Robux -->
-        <div class="pack-card" data-robux="125">
-            <div class="pack-badge hot">🔥 الأكثر طلباً</div>
+    <div class="packs-grid" id="normalPacks">
+        <!-- الباقة 100 Robux -->
+        <div class="pack-card" data-robux="100" data-type="normal">
             <div class="pack-header">
                 <div class="pack-title">
-                    <h3>125</h3>
+                    <h3>100</h3>
                     <span class="robux-label">Robux</span>
                 </div>
                 <div class="robux-symbol">R$</div>
             </div>
             <div class="pack-body">
                 <div class="pack-price">
-                    <span class="coins">40 Coins</span>
-                    <span class="egp">~35 جنيه</span>
+                    <span class="coins">11 Coins</span>
+                    <span class="egp">~36 جنيه</span>
                 </div>
                 <ul class="pack-features">
                     <li><i class="fas fa-check"></i> شحن فوري خلال 5 دقائق</li>
@@ -135,14 +134,14 @@
                     <li><i class="fas fa-check"></i> دعم فني 24/7</li>
                 </ul>
             </div>
-            <button class="pack-select-btn" onclick="showOrderForm(125)">
+            <button class="pack-select-btn" onclick="showOrderForm(100, 'normal')">
                 <i class="fas fa-shopping-cart"></i>
                 اختيار الباقة
             </button>
         </div>
         
         <!-- الباقة 250 Robux -->
-        <div class="pack-card" data-robux="250">
+        <div class="pack-card" data-robux="250" data-type="normal">
             <div class="pack-header">
                 <div class="pack-title">
                     <h3>250</h3>
@@ -152,8 +151,8 @@
             </div>
             <div class="pack-body">
                 <div class="pack-price">
-                    <span class="coins">80 Coins</span>
-                    <span class="egp">~70 جنيه</span>
+                    <span class="coins">27.5 Coins</span>
+                    <span class="egp">~90 جنيه</span>
                 </div>
                 <ul class="pack-features">
                     <li><i class="fas fa-check"></i> شحن فوري خلال 5 دقائق</li>
@@ -161,14 +160,14 @@
                     <li><i class="fas fa-check"></i> هدية مجانية</li>
                 </ul>
             </div>
-            <button class="pack-select-btn" onclick="showOrderForm(250)">
+            <button class="pack-select-btn" onclick="showOrderForm(250, 'normal')">
                 <i class="fas fa-shopping-cart"></i>
                 اختيار الباقة
             </button>
         </div>
         
         <!-- الباقة 500 Robux -->
-        <div class="pack-card featured" data-robux="500">
+        <div class="pack-card featured" data-robux="500" data-type="normal">
             <div class="pack-badge best">⭐ أفضل قيمة</div>
             <div class="pack-header">
                 <div class="pack-title">
@@ -179,8 +178,8 @@
             </div>
             <div class="pack-body">
                 <div class="pack-price">
-                    <span class="coins">160 Coins</span>
-                    <span class="egp">~140 جنيه</span>
+                    <span class="coins">55 Coins</span>
+                    <span class="egp">~180 جنيه</span>
                 </div>
                 <ul class="pack-features">
                     <li><i class="fas fa-check"></i> شحن فوري خلال 5 دقائق</li>
@@ -189,14 +188,14 @@
                     <li><i class="fas fa-check"></i> خصم 10% على الطلب التالي</li>
                 </ul>
             </div>
-            <button class="pack-select-btn featured-btn" onclick="showOrderForm(500)">
+            <button class="pack-select-btn featured-btn" onclick="showOrderForm(500, 'normal')">
                 <i class="fas fa-crown"></i>
                 أفضل اختيار
             </button>
         </div>
         
         <!-- الباقة 750 Robux -->
-        <div class="pack-card" data-robux="750">
+        <div class="pack-card" data-robux="750" data-type="normal">
             <div class="pack-header">
                 <div class="pack-title">
                     <h3>750</h3>
@@ -206,8 +205,8 @@
             </div>
             <div class="pack-body">
                 <div class="pack-price">
-                    <span class="coins">240 Coins</span>
-                    <span class="egp">~210 جنيه</span>
+                    <span class="coins">82.5 Coins</span>
+                    <span class="egp">~270 جنيه</span>
                 </div>
                 <ul class="pack-features">
                     <li><i class="fas fa-check"></i> شحن فوري خلال 5 دقائق</li>
@@ -215,14 +214,14 @@
                     <li><i class="fas fa-check"></i> أولوية في الشحن</li>
                 </ul>
             </div>
-            <button class="pack-select-btn" onclick="showOrderForm(750)">
+            <button class="pack-select-btn" onclick="showOrderForm(750, 'normal')">
                 <i class="fas fa-shopping-cart"></i>
                 اختيار الباقة
             </button>
         </div>
         
         <!-- الباقة 1000 Robux -->
-        <div class="pack-card premium" data-robux="1000">
+        <div class="pack-card premium" data-robux="1000" data-type="normal">
             <div class="pack-badge vip">👑 VIP</div>
             <div class="pack-header">
                 <div class="pack-title">
@@ -233,8 +232,8 @@
             </div>
             <div class="pack-body">
                 <div class="pack-price">
-                    <span class="coins">360 Coins</span>
-                    <span class="egp">~315 جنيه</span>
+                    <span class="coins">110 Coins</span>
+                    <span class="egp">~360 جنيه</span>
                 </div>
                 <ul class="pack-features">
                     <li><i class="fas fa-check"></i> شحن فوري خلال 3 دقائق</li>
@@ -244,7 +243,152 @@
                     <li><i class="fas fa-check"></i> خصم 15% دائم</li>
                 </ul>
             </div>
-            <button class="pack-select-btn premium-btn" onclick="showOrderForm(1000)">
+            <button class="pack-select-btn premium-btn" onclick="showOrderForm(1000, 'normal')">
+                <i class="fas fa-gem"></i>
+                باقة VIP
+            </button>
+        </div>
+    </div>
+</section>
+
+<!-- باقات الجفتات -->
+<section class="packs-section" style="margin-top: 50px;">
+    <div class="section-title">
+        <h2><i class="fas fa-gift"></i> الجفتات (بطاقات الهدايا)</h2>
+        <p class="section-subtitle">أسعار مخفضة للجفتات - شحن سريع</p>
+    </div>
+    
+    <div class="packs-grid" id="giftPacks">
+        <!-- الباقة 100 Robux -->
+        <div class="pack-card gift-card" data-robux="100" data-type="gift">
+            <div class="pack-header">
+                <div class="pack-title">
+                    <h3>100</h3>
+                    <span class="robux-label">Robux</span>
+                </div>
+                <div class="robux-symbol">🎁</div>
+            </div>
+            <div class="pack-body">
+                <div class="pack-price">
+                    <span class="coins">11 Coins</span>
+                    <span class="egp">~22 جنيه</span>
+                </div>
+                <ul class="pack-features">
+                    <li><i class="fas fa-check"></i> شحن فوري خلال 5 دقائق</li>
+                    <li><i class="fas fa-check"></i> ضمان استرجاع 100%</li>
+                    <li><i class="fas fa-check"></i> دعم فني 24/7</li>
+                </ul>
+            </div>
+            <button class="pack-select-btn gift-btn" onclick="showOrderForm(100, 'gift')">
+                <i class="fas fa-shopping-cart"></i>
+                اختيار الباقة
+            </button>
+        </div>
+        
+        <!-- الباقة 250 Robux -->
+        <div class="pack-card gift-card" data-robux="250" data-type="gift">
+            <div class="pack-header">
+                <div class="pack-title">
+                    <h3>250</h3>
+                    <span class="robux-label">Robux</span>
+                </div>
+                <div class="robux-symbol">🎁</div>
+            </div>
+            <div class="pack-body">
+                <div class="pack-price">
+                    <span class="coins">27.5 Coins</span>
+                    <span class="egp">~55 جنيه</span>
+                </div>
+                <ul class="pack-features">
+                    <li><i class="fas fa-check"></i> شحن فوري خلال 5 دقائق</li>
+                    <li><i class="fas fa-check"></i> ضمان استرجاع 100%</li>
+                    <li><i class="fas fa-check"></i> هدية مجانية</li>
+                </ul>
+            </div>
+            <button class="pack-select-btn gift-btn" onclick="showOrderForm(250, 'gift')">
+                <i class="fas fa-shopping-cart"></i>
+                اختيار الباقة
+            </button>
+        </div>
+        
+        <!-- الباقة 500 Robux -->
+        <div class="pack-card gift-card featured" data-robux="500" data-type="gift">
+            <div class="pack-badge best">⭐ أفضل قيمة</div>
+            <div class="pack-header">
+                <div class="pack-title">
+                    <h3>500</h3>
+                    <span class="robux-label">Robux</span>
+                </div>
+                <div class="robux-symbol">🎁</div>
+            </div>
+            <div class="pack-body">
+                <div class="pack-price">
+                    <span class="coins">55 Coins</span>
+                    <span class="egp">~110 جنيه</span>
+                </div>
+                <ul class="pack-features">
+                    <li><i class="fas fa-check"></i> شحن فوري خلال 5 دقائق</li>
+                    <li><i class="fas fa-check"></i> ضمان استرجاع 100%</li>
+                    <li><i class="fas fa-check"></i> دعم مميز VIP</li>
+                    <li><i class="fas fa-check"></i> خصم 10% على الطلب التالي</li>
+                </ul>
+            </div>
+            <button class="pack-select-btn gift-btn featured-btn" onclick="showOrderForm(500, 'gift')">
+                <i class="fas fa-crown"></i>
+                أفضل اختيار
+            </button>
+        </div>
+        
+        <!-- الباقة 750 Robux -->
+        <div class="pack-card gift-card" data-robux="750" data-type="gift">
+            <div class="pack-header">
+                <div class="pack-title">
+                    <h3>750</h3>
+                    <span class="robux-label">Robux</span>
+                </div>
+                <div class="robux-symbol">🎁</div>
+            </div>
+            <div class="pack-body">
+                <div class="pack-price">
+                    <span class="coins">82.5 Coins</span>
+                    <span class="egp">~165 جنيه</span>
+                </div>
+                <ul class="pack-features">
+                    <li><i class="fas fa-check"></i> شحن فوري خلال 5 دقائق</li>
+                    <li><i class="fas fa-check"></i> ضمان استرجاع 100%</li>
+                    <li><i class="fas fa-check"></i> أولوية في الشحن</li>
+                </ul>
+            </div>
+            <button class="pack-select-btn gift-btn" onclick="showOrderForm(750, 'gift')">
+                <i class="fas fa-shopping-cart"></i>
+                اختيار الباقة
+            </button>
+        </div>
+        
+        <!-- الباقة 1000 Robux -->
+        <div class="pack-card gift-card premium" data-robux="1000" data-type="gift">
+            <div class="pack-badge vip">👑 VIP</div>
+            <div class="pack-header">
+                <div class="pack-title">
+                    <h3>1000</h3>
+                    <span class="robux-label">Robux</span>
+                </div>
+                <div class="robux-symbol">🎁</div>
+            </div>
+            <div class="pack-body">
+                <div class="pack-price">
+                    <span class="coins">110 Coins</span>
+                    <span class="egp">~220 جنيه</span>
+                </div>
+                <ul class="pack-features">
+                    <li><i class="fas fa-check"></i> شحن فوري خلال 3 دقائق</li>
+                    <li><i class="fas fa-check"></i> ضمان استرجاع 200%</li>
+                    <li><i class="fas fa-check"></i> دعم فني مباشر</li>
+                    <li><i class="fas fa-check"></i> هدية خاصة بقيمة 50 Robux</li>
+                    <li><i class="fas fa-check"></i> خصم 15% دائم</li>
+                </ul>
+            </div>
+            <button class="pack-select-btn gift-btn premium-btn" onclick="showOrderForm(1000, 'gift')">
                 <i class="fas fa-gem"></i>
                 باقة VIP
             </button>
@@ -314,6 +458,18 @@
                            pattern="^01[0125][0-9]{8}$"
                            required>
                     <small class="form-hint">يجب أن يكون 11 رقماً ويبدأ بـ 010/011/012/015</small>
+                </div>
+                
+                <div class="form-group">
+                    <label for="packType">
+                        <i class="fas fa-box"></i>
+                        نوع الباقة
+                    </label>
+                    <select id="packType" required>
+                        <option value="">-- اختر نوع الباقة --</option>
+                        <option value="normal">روبكس صافي</option>
+                        <option value="gift">جفتات</option>
+                    </select>
                 </div>
                 
                 <div class="form-group">

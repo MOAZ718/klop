@@ -1,16 +1,17 @@
 // ========== إعدادات التطبيق ==========
 const CONFIG = {
-    // ⚠️ استبدل هذه البيانات بمعلوماتك الحقيقية
     TELEGRAM_BOT_TOKEN: "8048006258:AAHiA-yuHMigwtYsGj-0xxWOCtZ7a4-1P94",
     TELEGRAM_CHAT_ID: "7158586299",
     BOT_USERNAME: "@medmed1898bot",
     STORE_PHONE: "01287754157",
     STORE_NAME: "عمر محمد",
-    API_URL: "https://your-server.com/api" // لو عندك سيرفر
+    NORMAL_PRICE_PER_1000: 360,  // 360 جنيه لكل 1000 روبكس صافي
+    GIFT_PRICE_PER_1000: 220,    // 220 جنيه لكل 1000 روبكس جفتات
 };
 
 // ========== المتغيرات العالمية ==========
 let selectedPack = null;
+let selectedPackType = null; // 'normal' أو 'gift'
 let orders = [];
 let isAdminMode = false;
 
@@ -85,8 +86,9 @@ function setupEventListeners() {
             const card = this.closest('.pack-card');
             if (card) {
                 const robux = card.getAttribute('data-robux');
-                if (robux) {
-                    showOrderForm(robux);
+                const type = card.getAttribute('data-type');
+                if (robux && type) {
+                    showOrderForm(robux, type);
                 }
             }
         });
@@ -97,8 +99,9 @@ function setupEventListeners() {
         card.addEventListener('click', function(e) {
             if (!e.target.closest('.pack-select-btn')) {
                 const robux = this.getAttribute('data-robux');
-                if (robux) {
-                    showOrderForm(robux);
+                const type = this.getAttribute('data-type');
+                if (robux && type) {
+                    showOrderForm(robux, type);
                 }
             }
         });
@@ -158,13 +161,17 @@ function setupEventListeners() {
 }
 
 // ========== عرض نموذج الطلب ==========
-function showOrderForm(robux) {
-    console.log(`📦 تم اختيار باقة ${robux} Robux`);
+function showOrderForm(robux, type) {
+    console.log(`📦 تم اختيار باقة ${robux} Robux - نوع: ${type}`);
     
     selectedPack = parseInt(robux);
+    selectedPackType = type;
     
     // تحديث معلومات الباقة المختارة
-    updateOrderSummary(robux);
+    updateOrderSummary(robux, type);
+    
+    // إعداد نوع الباقة في القائمة المنسدلة
+    document.getElementById('packType').value = type;
     
     // إظهار نافذة الطلب
     document.getElementById('orderModal').style.display = 'flex';
@@ -179,14 +186,20 @@ function showOrderForm(robux) {
     addOrderModalStyles();
 }
 
-function updateOrderSummary(robux) {
+function updateOrderSummary(robux, type) {
     const coins = calculateCoins(robux);
-    const priceEGP = calculatePriceEGP(robux);
+    const priceEGP = calculatePriceEGP(robux, type);
+    const packTypeText = type === 'normal' ? 'روبكس صافي' : 'جفتات';
+    const packTypeIcon = type === 'normal' ? 'fas fa-coins' : 'fas fa-gift';
     
     document.getElementById('orderSummary').innerHTML = `
         <div class="selected-pack-display">
-            <h4><i class="fas fa-box-open"></i> تفاصيل الباقة المختارة</h4>
+            <h4><i class="${packTypeIcon}"></i> تفاصيل الباقة المختارة</h4>
             <div class="pack-details">
+                <div class="detail-row">
+                    <span class="label">النوع:</span>
+                    <span class="value ${type === 'normal' ? 'normal-type' : 'gift-type'}">${packTypeText}</span>
+                </div>
                 <div class="detail-row">
                     <span class="label">الروبكس:</span>
                     <span class="value highlight">${robux} Robux</span>
@@ -217,18 +230,16 @@ function updateOrderSummary(robux) {
 }
 
 function calculateCoins(robux) {
-    const rates = {
-        125: 40,
-        250: 80,
-        500: 160,
-        750: 240,
-        1000: 360
-    };
-    return rates[robux] || Math.round((robux / 125) * 40);
+    // 11 كوين لكل 100 روبكس
+    return (robux / 100) * 11;
 }
 
-function calculatePriceEGP(robux) {
-    return Math.round((robux * 0.35) / 5) * 5;
+function calculatePriceEGP(robux, type) {
+    if (type === 'normal') {
+        return Math.round((robux * CONFIG.NORMAL_PRICE_PER_1000) / 1000);
+    } else {
+        return Math.round((robux * CONFIG.GIFT_PRICE_PER_1000) / 1000);
+    }
 }
 
 function closeOrderModal() {
@@ -240,11 +251,13 @@ function closeOrderModal() {
 function resetOrderForm() {
     document.getElementById('robloxUsername').value = '';
     document.getElementById('userPhone').value = '';
+    document.getElementById('packType').value = '';
     document.getElementById('paymentType').value = '';
     document.getElementById('orderNotes').value = '';
     document.getElementById('orderMessage').style.display = 'none';
     document.getElementById('orderMessage').innerHTML = '';
     selectedPack = null;
+    selectedPackType = null;
 }
 
 // ========== إرسال الطلب ==========
@@ -254,13 +267,14 @@ async function submitOrder() {
     // جمع البيانات من النموذج
     const username = document.getElementById('robloxUsername').value.trim();
     const phone = document.getElementById('userPhone').value.trim();
+    const packType = document.getElementById('packType').value;
     const paymentMethod = document.getElementById('paymentType').value;
     const notes = document.getElementById('orderNotes').value.trim();
     
-    console.log('📊 بيانات الطلب:', { username, phone, paymentMethod, notes, selectedPack });
+    console.log('📊 بيانات الطلب:', { username, phone, packType, paymentMethod, notes, selectedPack });
     
     // التحقق من البيانات
-    if (!validateOrderData(username, phone, paymentMethod)) {
+    if (!validateOrderData(username, phone, packType, paymentMethod)) {
         return;
     }
     
@@ -275,7 +289,7 @@ async function submitOrder() {
     
     try {
         // إنشاء الطلب
-        const order = createOrder(username, phone, paymentMethod, notes);
+        const order = createOrder(username, phone, packType, paymentMethod, notes);
         console.log('📝 الطلب المنشئ:', order);
         
         // 1. حفظ الطلب محلياً أولاً
@@ -334,7 +348,7 @@ async function submitOrder() {
     }
 }
 
-function validateOrderData(username, phone, paymentMethod) {
+function validateOrderData(username, phone, packType, paymentMethod) {
     // التحقق من اسم المستخدم
     if (!username) {
         showOrderMessage('❌ يرجى إدخال اسم مستخدم Roblox', 'error');
@@ -358,6 +372,12 @@ function validateOrderData(username, phone, paymentMethod) {
         return false;
     }
     
+    // التحقق من نوع الباقة
+    if (!packType) {
+        showOrderMessage('❌ يرجى اختيار نوع الباقة', 'error');
+        return false;
+    }
+    
     // التحقق من طريقة الدفع
     if (!paymentMethod) {
         showOrderMessage('❌ يرجى اختيار طريقة الدفع', 'error');
@@ -365,7 +385,7 @@ function validateOrderData(username, phone, paymentMethod) {
     }
     
     // التحقق من اختيار الباقة
-    if (!selectedPack) {
+    if (!selectedPack || !selectedPackType) {
         showOrderMessage('❌ لم يتم اختيار باقة', 'error');
         return false;
     }
@@ -373,16 +393,19 @@ function validateOrderData(username, phone, paymentMethod) {
     return true;
 }
 
-function createOrder(username, phone, paymentMethod, notes) {
+function createOrder(username, phone, packType, paymentMethod, notes) {
     const orderId = Date.now();
     const coins = calculateCoins(selectedPack);
-    const priceEGP = calculatePriceEGP(selectedPack);
+    const priceEGP = calculatePriceEGP(selectedPack, packType);
+    const packTypeText = packType === 'normal' ? 'روبكس صافي' : 'جفتات';
     
     return {
         id: orderId,
         orderNumber: `ORDER-${orderId.toString().slice(-6)}`,
         user: username,
         robux: selectedPack,
+        packType: packType,
+        packTypeText: packTypeText,
         coins: coins,
         priceEGP: priceEGP,
         phone: phone,
@@ -503,7 +526,7 @@ async function sendOrderToTelegram(order) {
 
 async function sendTelegramConfirmation(order) {
     try {
-        if (!CONFIG.TELEGRAM_BOT_TOKEN || CONFIG.TELEGRAM_BOT_TOKEN === "7443985863:AAF4_LDRl0o8Bxw5c16Ulm0qXbW0V_gy3yU") {
+        if (!CONFIG.TELEGRAM_BOT_TOKEN || CONFIG.TELEGRAM_BOT_TOKEN === "8048006258:AAHiA-yuHMigwtYsGj-0xxWOCtZ7a4-1P94") {
             return;
         }
         
@@ -529,8 +552,9 @@ function createTelegramMessage(order) {
 🎮 <b>طلب جديد - OMAR STORE</b> 🎮
 ━━━━━━━━━━━━━━━━
 👤 <b>المستخدم:</b> ${order.user}
+🎯 <b>النوع:</b> ${order.packTypeText}
 💰 <b>الباقة:</b> ${order.robux} Robux
-🪙 <b>الكوينز:</b> ${order.coins} Coins
+🪙 <b>الكوينز:</b> ${order.coins.toFixed(1)} Coins
 💵 <b>السعر:</b> ${order.priceEGP} جنيه
 📱 <b>الهاتف:</b> <code>${order.phone}</code>
 💳 <b>الدفع:</b> ${order.paymentMethod}
@@ -613,6 +637,10 @@ function showConfirmationModal(order) {
                 <span class="conf-value">${order.user}</span>
             </div>
             <div class="confirmation-item">
+                <span class="conf-label">النوع:</span>
+                <span class="conf-value">${order.packTypeText}</span>
+            </div>
+            <div class="confirmation-item">
                 <span class="conf-label">الباقة:</span>
                 <span class="conf-value">${order.robux} Robux</span>
             </div>
@@ -646,9 +674,7 @@ function closeConfirmationModal() {
 
 // ========== وظائف مساعدة ==========
 function copyToClipboard(text, type = 'النص') {
-    // طريقة النسخ المتوافقة مع جميع المتصفحات
     if (navigator.clipboard && window.isSecureContext) {
-        // طريقة حديثة
         navigator.clipboard.writeText(text).then(() => {
             showNotification(`✅ تم نسخ ${type} بنجاح`);
             playSuccessSound();
@@ -657,7 +683,6 @@ function copyToClipboard(text, type = 'النص') {
             fallbackCopy(text, type);
         });
     } else {
-        // طريقة قديمة للمتصفحات التي لا تدعم Clipboard API
         fallbackCopy(text, type);
     }
 }
@@ -704,7 +729,6 @@ function showNotification(text) {
 
 function playSuccessSound() {
     try {
-        // إنشاء صوت بسيط باستخدام Web Audio API
         if (window.AudioContext || window.webkitAudioContext) {
             const audioContext = new (window.AudioContext || window.webkitAudioContext)();
             const oscillator = audioContext.createOscillator();
@@ -730,7 +754,7 @@ function playSuccessSound() {
 
 // ========== وظائف التحكم من التليجرام ==========
 async function checkTelegramConnection() {
-    if (!CONFIG.TELEGRAM_BOT_TOKEN || CONFIG.TELEGRAM_BOT_TOKEN === "7443985863:AAF4_LDRl0o8Bxw5c16Ulm0qXbW0V_gy3yU") {
+    if (!CONFIG.TELEGRAM_BOT_TOKEN || CONFIG.TELEGRAM_BOT_TOKEN === "8048006258:AAHiA-yuHMigwtYsGj-0xxWOCtZ7a4-1P94") {
         console.log('⚠️ لم يتم إعداد توكن التليجرام بعد');
         return;
     }
@@ -768,11 +792,9 @@ async function getTelegramUpdates() {
     }
 }
 
-// محاكاة استجابة التليجرام (للاختبار)
 function simulateTelegramResponse(orderId, action) {
     console.log(`🤖 محاكاة استجابة التليجرام: ${action} للطلب ${orderId}`);
     
-    // تحديث حالة الطلب محلياً
     let newStatus = '🟡 قيد الانتظار';
     let statusText = 'قيد الانتظار';
     
@@ -793,7 +815,6 @@ function simulateTelegramResponse(orderId, action) {
     
     updateOrderStatus(orderId, newStatus, true);
     
-    // إظهار إشعار للمستخدم
     showNotification(`📱 تم ${statusText} الطلب ${orderId} من التليجرام`);
     
     return { success: true, action: action, orderId: orderId };
@@ -812,7 +833,6 @@ function showAdminPanel() {
         }
     }
     
-    // إنشاء لوحة التحكم
     const adminHTML = `
         <div class="admin-panel">
             <div class="admin-header">
@@ -834,6 +854,14 @@ function showAdminPanel() {
                     <span class="stat-value">${orders.filter(o => o.status.includes('🟡')).length}</span>
                     <span class="stat-label">قيد الانتظار</span>
                 </div>
+                <div class="stat">
+                    <span class="stat-value">${orders.filter(o => o.packType === 'normal').length}</span>
+                    <span class="stat-label">روبكس صافي</span>
+                </div>
+                <div class="stat">
+                    <span class="stat-value">${orders.filter(o => o.packType === 'gift').length}</span>
+                    <span class="stat-label">جفتات</span>
+                </div>
             </div>
             <div class="admin-actions">
                 <button onclick="exportOrders()" class="admin-btn">
@@ -852,7 +880,8 @@ function showAdminPanel() {
                     <div class="order-item">
                         <div class="order-info">
                             <strong>${order.user}</strong>
-                            <span>${order.robux} Robux</span>
+                            <span>${order.robux} Robux (${order.packTypeText})</span>
+                            <small>${order.priceEGP} جنيه</small>
                         </div>
                         <div class="order-actions">
                             <button onclick="updateOrder('${order.id}', 'accept')" class="btn-small success">
@@ -1010,8 +1039,14 @@ function addOrderModalStyles() {
                 text-shadow: 0 2px 5px rgba(46, 204, 113, 0.3);
             }
             
-            .detail-row .value.payment {
+            .detail-row .value.normal-type {
+                color: #3498db;
+                text-shadow: 0 2px 5px rgba(52, 152, 219, 0.3);
+            }
+            
+            .detail-row .value.gift-type {
                 color: #9b59b6;
+                text-shadow: 0 2px 5px rgba(155, 89, 182, 0.3);
             }
             
             .transfer-info {
@@ -1094,6 +1129,25 @@ function addOrderModalStyles() {
                 border-color: #00adb5;
                 box-shadow: 0 0 0 3px rgba(0, 173, 181, 0.2);
                 background: rgba(255, 255, 255, 0.12);
+            }
+            
+            .gift-card {
+                border-color: rgba(155, 89, 182, 0.3);
+                background: linear-gradient(145deg, rgba(60, 30, 90, 0.9), rgba(40, 10, 70, 0.9));
+            }
+            
+            .gift-card:hover {
+                border-color: #9b59b6;
+                box-shadow: 0 25px 50px rgba(155, 89, 182, 0.3);
+            }
+            
+            .gift-btn {
+                background: linear-gradient(135deg, #9b59b6, #8e44ad);
+            }
+            
+            .gift-btn:hover {
+                background: linear-gradient(135deg, #8e44ad, #7d3c98);
+                box-shadow: 0 15px 30px rgba(155, 89, 182, 0.4);
             }
             
             /* تحسينات للجوال */
@@ -1304,6 +1358,11 @@ function addOrderModalStyles() {
                 font-size: 1rem;
             }
             
+            .order-info small {
+                color: #ffd369;
+                font-size: 0.9rem;
+            }
+            
             .order-actions {
                 display: flex;
                 gap: 10px;
@@ -1366,7 +1425,6 @@ setInterval(async () => {
         const updates = await getTelegramUpdates();
         if (updates.length > 0) {
             console.log('📱 تم استلام تحديثات من التليجرام');
-            // يمكنك معالجة التحديثات هنا
         }
     }
 }, 30000);
