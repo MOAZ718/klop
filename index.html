@@ -3,579 +3,831 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>OMAR STORE - شحن روبكس فوري</title>
+    <title>OMAR STORE | شحن روبكس فوري - أفضل الأسعار في مصر</title>
     <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
 </head>
 <body>
-
-<!-- الشعار الرئيسي -->
-<header class="main-header">
-    <div class="logo-container">
-        <div class="logo">
-            <i class="fas fa-gamepad"></i>
-            <span>OMAR STORE</span>
-        </div>
-        <p class="slogan">🎮 متجر شحن روبكس الرسمي | توصيل فوري 🎮</p>
-        <div class="channel-info">
-            <i class="fab fa-telegram"></i>
-            <span>طلباتنا على التليجرام: <a href="https://t.me/med4009" target="_blank">@med4009</a></span>
+    <!-- شريط التنبيه العلوي -->
+    <div class="alert-bar">
+        <div class="alert-content">
+            <i class="fas fa-bolt"></i>
+            <span class="alert-text">⚡ شحن فوري خلال 5 دقائق | ⭐ تقييم 4.9/5 | 📞 دعم فني 24/7 | 🎮 متجر رقم #1 في مصر</span>
+            <i class="fas fa-bolt"></i>
         </div>
     </div>
-</header>
 
-<!-- معلومات التواصل -->
-<section class="contact-section">
-    <div class="section-title">
-        <h2><i class="fas fa-headset"></i> تواصل معنا</h2>
-    </div>
-    
-    <div class="contact-cards">
-        <div class="contact-card">
-            <div class="contact-icon">
-                <i class="fas fa-phone"></i>
+    <!-- الهيدر الرئيسي -->
+    <header class="main-header">
+        <div class="header-container">
+            <div class="logo-section">
+                <div class="logo animate__animated animate__pulse">
+                    <i class="fas fa-gamepad"></i>
+                    <div class="logo-text">
+                        <h1>OMAR STORE</h1>
+                        <p class="logo-subtitle">متجر شحن روبكس الرسمي</p>
+                    </div>
+                </div>
+                <div class="header-stats">
+                    <div class="stat-item">
+                        <i class="fas fa-users"></i>
+                        <span>+2,500 عميل</span>
+                    </div>
+                    <div class="stat-item">
+                        <i class="fas fa-clock"></i>
+                        <span>شحن فوري</span>
+                    </div>
+                    <div class="stat-item">
+                        <i class="fas fa-shield-alt"></i>
+                        <span>ضمان 100%</span>
+                    </div>
+                </div>
             </div>
-            <div class="contact-info">
-                <h3>واتساب سريع</h3>
-                <p class="number">01287754157</p>
-                <button class="contact-btn" onclick="copyToClipboard('01287754157', 'رقم الهاتف')">
-                    <i class="fas fa-copy"></i> نسخ الرقم
-                </button>
-            </div>
-        </div>
-        
-        <div class="contact-card">
-            <div class="contact-icon">
-                <i class="fas fa-envelope"></i>
-            </div>
-            <div class="contact-info">
-                <h3>البريد الإلكتروني</h3>
-                <p class="email">aljnmr706@gmail.com</p>
-                <button class="contact-btn" onclick="copyToClipboard('aljnmr706@gmail.com', 'البريد الإلكتروني')">
-                    <i class="fas fa-copy"></i> نسخ الإيميل
-                </button>
-            </div>
-        </div>
-        
-        <div class="contact-card">
-            <div class="contact-icon">
+            
+            <div class="channel-info">
                 <i class="fab fa-telegram"></i>
+                <div>
+                    <span class="channel-title">قناة الطلبات الرسمية:</span>
+                    <a href="https://t.me/med4009" target="_blank" class="channel-link">@med4009</a>
+                </div>
             </div>
-            <div class="contact-info">
-                <h3>قناة الطلبات</h3>
-                <p class="telegram">@med4009</p>
-                <a href="https://t.me/med4009" target="_blank" class="contact-btn telegram-btn">
-                    <i class="fab fa-telegram"></i> الدخول للقناة
+        </div>
+    </header>
+
+    <!-- قسم الباقات الرئيسي -->
+    <main class="main-content">
+        <!-- قسم الروبكس الصافي -->
+        <section class="packs-section normal-packs">
+            <div class="section-header">
+                <div class="section-title">
+                    <i class="fas fa-gem"></i>
+                    <h2>الروبكس الصافي</h2>
+                </div>
+                <p class="section-subtitle">أسعار مخفضة! 1000 روبكس بـ 320 جنيه فقط</p>
+                <div class="price-badge">
+                    <span class="badge-text">سعر خاص</span>
+                    <span class="badge-price">1000 = 320 ج</span>
+                </div>
+            </div>
+
+            <div class="packs-grid">
+                <!-- باقة 100 -->
+                <div class="pack-card normal">
+                    <div class="pack-badge hot">🔥 الأكثر مبيعاً</div>
+                    <div class="pack-header">
+                        <div class="pack-icon">
+                            <i class="fas fa-bolt"></i>
+                        </div>
+                        <div class="pack-title">
+                            <h3>100</h3>
+                            <span class="pack-label">روبكس</span>
+                        </div>
+                    </div>
+                    <div class="pack-body">
+                        <div class="pack-price">
+                            <div class="price-main">
+                                <span class="price-value">32</span>
+                                <span class="price-currency">جنيه</span>
+                            </div>
+                            <div class="price-equivalent">
+                                <i class="fas fa-coins"></i>
+                                <span>32 كوين</span>
+                            </div>
+                        </div>
+                        <ul class="pack-features">
+                            <li><i class="fas fa-check-circle"></i> شحن فوري 5 دقائق</li>
+                            <li><i class="fas fa-check-circle"></i> ضمان استرجاع 100%</li>
+                            <li><i class="fas fa-check-circle"></i> دعم فني مباشر</li>
+                        </ul>
+                    </div>
+                    <button class="pack-btn" onclick="showOrderForm(100, 'normal')">
+                        <i class="fas fa-shopping-cart"></i>
+                        <span>اطلب الآن</span>
+                        <i class="fas fa-arrow-left"></i>
+                    </button>
+                </div>
+
+                <!-- باقة 250 -->
+                <div class="pack-card normal">
+                    <div class="pack-header">
+                        <div class="pack-icon">
+                            <i class="fas fa-star"></i>
+                        </div>
+                        <div class="pack-title">
+                            <h3>250</h3>
+                            <span class="pack-label">روبكس</span>
+                        </div>
+                    </div>
+                    <div class="pack-body">
+                        <div class="pack-price">
+                            <div class="price-main">
+                                <span class="price-value">80</span>
+                                <span class="price-currency">جنيه</span>
+                            </div>
+                            <div class="price-equivalent">
+                                <i class="fas fa-coins"></i>
+                                <span>80 كوين</span>
+                            </div>
+                        </div>
+                        <ul class="pack-features">
+                            <li><i class="fas fa-check-circle"></i> شحن فوري 5 دقائق</li>
+                            <li><i class="fas fa-check-circle"></i> ضمان استرجاع 100%</li>
+                            <li><i class="fas fa-check-circle"></i> هدية مجانية</li>
+                        </ul>
+                    </div>
+                    <button class="pack-btn" onclick="showOrderForm(250, 'normal')">
+                        <i class="fas fa-shopping-cart"></i>
+                        <span>اطلب الآن</span>
+                        <i class="fas fa-arrow-left"></i>
+                    </button>
+                </div>
+
+                <!-- باقة 500 -->
+                <div class="pack-card normal featured">
+                    <div class="pack-badge best">⭐ الأفضل قيمة</div>
+                    <div class="pack-header">
+                        <div class="pack-icon">
+                            <i class="fas fa-crown"></i>
+                        </div>
+                        <div class="pack-title">
+                            <h3>500</h3>
+                            <span class="pack-label">روبكس</span>
+                        </div>
+                    </div>
+                    <div class="pack-body">
+                        <div class="pack-price">
+                            <div class="price-main">
+                                <span class="price-value">160</span>
+                                <span class="price-currency">جنيه</span>
+                            </div>
+                            <div class="price-equivalent">
+                                <i class="fas fa-coins"></i>
+                                <span>160 كوين</span>
+                            </div>
+                        </div>
+                        <ul class="pack-features">
+                            <li><i class="fas fa-check-circle"></i> شحن فوري 5 دقائق</li>
+                            <li><i class="fas fa-check-circle"></i> ضمان استرجاع 100%</li>
+                            <li><i class="fas fa-check-circle"></i> دعم مميز VIP</li>
+                            <li><i class="fas fa-check-circle"></i> خصم 10% على الطلب التالي</li>
+                        </ul>
+                    </div>
+                    <button class="pack-btn featured-btn" onclick="showOrderForm(500, 'normal')">
+                        <i class="fas fa-crown"></i>
+                        <span>الأفضل قيمة</span>
+                        <i class="fas fa-arrow-left"></i>
+                    </button>
+                </div>
+
+                <!-- باقة 750 -->
+                <div class="pack-card normal">
+                    <div class="pack-header">
+                        <div class="pack-icon">
+                            <i class="fas fa-rocket"></i>
+                        </div>
+                        <div class="pack-title">
+                            <h3>750</h3>
+                            <span class="pack-label">روبكس</span>
+                        </div>
+                    </div>
+                    <div class="pack-body">
+                        <div class="pack-price">
+                            <div class="price-main">
+                                <span class="price-value">240</span>
+                                <span class="price-currency">جنيه</span>
+                            </div>
+                            <div class="price-equivalent">
+                                <i class="fas fa-coins"></i>
+                                <span>240 كوين</span>
+                            </div>
+                        </div>
+                        <ul class="pack-features">
+                            <li><i class="fas fa-check-circle"></i> شحن فوري 5 دقائق</li>
+                            <li><i class="fas fa-check-circle"></i> ضمان استرجاع 100%</li>
+                            <li><i class="fas fa-check-circle"></i> أولوية في الشحن</li>
+                            <li><i class="fas fa-check-circle"></i> هدية بقيمة 25 روبكس</li>
+                        </ul>
+                    </div>
+                    <button class="pack-btn" onclick="showOrderForm(750, 'normal')">
+                        <i class="fas fa-shopping-cart"></i>
+                        <span>اطلب الآن</span>
+                        <i class="fas fa-arrow-left"></i>
+                    </button>
+                </div>
+
+                <!-- باقة 1000 -->
+                <div class="pack-card normal premium">
+                    <div class="pack-badge vip">👑 VIP</div>
+                    <div class="pack-header">
+                        <div class="pack-icon">
+                            <i class="fas fa-gem"></i>
+                        </div>
+                        <div class="pack-title">
+                            <h3>1000</h3>
+                            <span class="pack-label">روبكس</span>
+                        </div>
+                    </div>
+                    <div class="pack-body">
+                        <div class="pack-price">
+                            <div class="price-main">
+                                <span class="price-value">320</span>
+                                <span class="price-currency">جنيه</span>
+                            </div>
+                            <div class="price-equivalent">
+                                <i class="fas fa-coins"></i>
+                                <span>320 كوين</span>
+                            </div>
+                        </div>
+                        <ul class="pack-features">
+                            <li><i class="fas fa-check-circle"></i> شحن فوري خلال 3 دقائق</li>
+                            <li><i class="fas fa-check-circle"></i> ضمان استرجاع 200%</li>
+                            <li><i class="fas fa-check-circle"></i> دعم فني مباشر</li>
+                            <li><i class="fas fa-check-circle"></i> هدية خاصة 50 روبكس</li>
+                            <li><i class="fas fa-check-circle"></i> خصم 15% دائم</li>
+                        </ul>
+                    </div>
+                    <button class="pack-btn premium-btn" onclick="showOrderForm(1000, 'normal')">
+                        <i class="fas fa-gem"></i>
+                        <span>باقة VIP</span>
+                        <i class="fas fa-arrow-left"></i>
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <!-- قسم الجفتات -->
+        <section class="packs-section gift-packs">
+            <div class="section-header">
+                <div class="section-title">
+                    <i class="fas fa-gift"></i>
+                    <h2>الجفتات</h2>
+                </div>
+                <p class="section-subtitle">أسعار مميزة! 1000 روبكس بـ 220 جنيه فقط</p>
+                <div class="price-badge">
+                    <span class="badge-text">سعر مخفض</span>
+                    <span class="badge-price">1000 = 220 ج</span>
+                </div>
+            </div>
+
+            <div class="packs-grid">
+                <!-- باقة 100 -->
+                <div class="pack-card gift">
+                    <div class="pack-badge hot">🔥 اقتصادي</div>
+                    <div class="pack-header">
+                        <div class="pack-icon">
+                            <i class="fas fa-gift"></i>
+                        </div>
+                        <div class="pack-title">
+                            <h3>100</h3>
+                            <span class="pack-label">روبكس</span>
+                        </div>
+                    </div>
+                    <div class="pack-body">
+                        <div class="pack-price">
+                            <div class="price-main">
+                                <span class="price-value">22</span>
+                                <span class="price-currency">جنيه</span>
+                            </div>
+                            <div class="price-equivalent">
+                                <i class="fas fa-coins"></i>
+                                <span>22 كوين</span>
+                            </div>
+                        </div>
+                        <ul class="pack-features">
+                            <li><i class="fas fa-check-circle"></i> شحن فوري 5 دقائق</li>
+                            <li><i class="fas fa-check-circle"></i> ضمان استرجاع 100%</li>
+                            <li><i class="fas fa-check-circle"></i> دعم فني 24/7</li>
+                        </ul>
+                    </div>
+                    <button class="pack-btn gift-btn" onclick="showOrderForm(100, 'gift')">
+                        <i class="fas fa-shopping-cart"></i>
+                        <span>اطلب الآن</span>
+                        <i class="fas fa-arrow-left"></i>
+                    </button>
+                </div>
+
+                <!-- باقة 250 -->
+                <div class="pack-card gift">
+                    <div class="pack-header">
+                        <div class="pack-icon">
+                            <i class="fas fa-gift"></i>
+                        </div>
+                        <div class="pack-title">
+                            <h3>250</h3>
+                            <span class="pack-label">روبكس</span>
+                        </div>
+                    </div>
+                    <div class="pack-body">
+                        <div class="pack-price">
+                            <div class="price-main">
+                                <span class="price-value">55</span>
+                                <span class="price-currency">جنيه</span>
+                            </div>
+                            <div class="price-equivalent">
+                                <i class="fas fa-coins"></i>
+                                <span>55 كوين</span>
+                            </div>
+                        </div>
+                        <ul class="pack-features">
+                            <li><i class="fas fa-check-circle"></i> شحن فوري 5 دقائق</li>
+                            <li><i class="fas fa-check-circle"></i> ضمان استرجاع 100%</li>
+                            <li><i class="fas fa-check-circle"></i> هدية مجانية</li>
+                        </ul>
+                    </div>
+                    <button class="pack-btn gift-btn" onclick="showOrderForm(250, 'gift')">
+                        <i class="fas fa-shopping-cart"></i>
+                        <span>اطلب الآن</span>
+                        <i class="fas fa-arrow-left"></i>
+                    </button>
+                </div>
+
+                <!-- باقة 500 -->
+                <div class="pack-card gift featured">
+                    <div class="pack-badge best">⭐ الأفضل قيمة</div>
+                    <div class="pack-header">
+                        <div class="pack-icon">
+                            <i class="fas fa-gift"></i>
+                        </div>
+                        <div class="pack-title">
+                            <h3>500</h3>
+                            <span class="pack-label">روبكس</span>
+                        </div>
+                    </div>
+                    <div class="pack-body">
+                        <div class="pack-price">
+                            <div class="price-main">
+                                <span class="price-value">110</span>
+                                <span class="price-currency">جنيه</span>
+                            </div>
+                            <div class="price-equivalent">
+                                <i class="fas fa-coins"></i>
+                                <span>110 كوين</span>
+                            </div>
+                        </div>
+                        <ul class="pack-features">
+                            <li><i class="fas fa-check-circle"></i> شحن فوري 5 دقائق</li>
+                            <li><i class="fas fa-check-circle"></i> ضمان استرجاع 100%</li>
+                            <li><i class="fas fa-check-circle"></i> دعم مميز VIP</li>
+                            <li><i class="fas fa-check-circle"></i> خصم 10% على الطلب التالي</li>
+                        </ul>
+                    </div>
+                    <button class="pack-btn gift-btn featured-btn" onclick="showOrderForm(500, 'gift')">
+                        <i class="fas fa-crown"></i>
+                        <span>الأفضل قيمة</span>
+                        <i class="fas fa-arrow-left"></i>
+                    </button>
+                </div>
+
+                <!-- باقة 750 -->
+                <div class="pack-card gift">
+                    <div class="pack-header">
+                        <div class="pack-icon">
+                            <i class="fas fa-gift"></i>
+                        </div>
+                        <div class="pack-title">
+                            <h3>750</h3>
+                            <span class="pack-label">روبكس</span>
+                        </div>
+                    </div>
+                    <div class="pack-body">
+                        <div class="pack-price">
+                            <div class="price-main">
+                                <span class="price-value">165</span>
+                                <span class="price-currency">جنيه</span>
+                            </div>
+                            <div class="price-equivalent">
+                                <i class="fas fa-coins"></i>
+                                <span>165 كوين</span>
+                            </div>
+                        </div>
+                        <ul class="pack-features">
+                            <li><i class="fas fa-check-circle"></i> شحن فوري 5 دقائق</li>
+                            <li><i class="fas fa-check-circle"></i> ضمان استرجاع 100%</li>
+                            <li><i class="fas fa-check-circle"></i> أولوية في الشحن</li>
+                            <li><i class="fas fa-check-circle"></i> هدية بقيمة 25 روبكس</li>
+                        </ul>
+                    </div>
+                    <button class="pack-btn gift-btn" onclick="showOrderForm(750, 'gift')">
+                        <i class="fas fa-shopping-cart"></i>
+                        <span>اطلب الآن</span>
+                        <i class="fas fa-arrow-left"></i>
+                    </button>
+                </div>
+
+                <!-- باقة 1000 -->
+                <div class="pack-card gift premium">
+                    <div class="pack-badge vip">👑 VIP</div>
+                    <div class="pack-header">
+                        <div class="pack-icon">
+                            <i class="fas fa-gem"></i>
+                        </div>
+                        <div class="pack-title">
+                            <h3>1000</h3>
+                            <span class="pack-label">روبكس</span>
+                        </div>
+                    </div>
+                    <div class="pack-body">
+                        <div class="pack-price">
+                            <div class="price-main">
+                                <span class="price-value">220</span>
+                                <span class="price-currency">جنيه</span>
+                            </div>
+                            <div class="price-equivalent">
+                                <i class="fas fa-coins"></i>
+                                <span>220 كوين</span>
+                            </div>
+                        </div>
+                        <ul class="pack-features">
+                            <li><i class="fas fa-check-circle"></i> شحن فوري خلال 3 دقائق</li>
+                            <li><i class="fas fa-check-circle"></i> ضمان استرجاع 200%</li>
+                            <li><i class="fas fa-check-circle"></i> دعم فني مباشر</li>
+                            <li><i class="fas fa-check-circle"></i> هدية خاصة 50 روبكس</li>
+                            <li><i class="fas fa-check-circle"></i> خصم 15% دائم</li>
+                        </ul>
+                    </div>
+                    <button class="pack-btn gift-btn premium-btn" onclick="showOrderForm(1000, 'gift')">
+                        <i class="fas fa-gem"></i>
+                        <span>باقة VIP</span>
+                        <i class="fas fa-arrow-left"></i>
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <!-- قسم الدفع والتواصل -->
+        <section class="contact-section">
+            <div class="contact-container">
+                <div class="contact-header">
+                    <h2><i class="fas fa-credit-card"></i> طرق الدفع والتحويل</h2>
+                    <p>اختر طريقة الدفع المناسبة لك وقم بالتحويل مباشرة</p>
+                </div>
+
+                <div class="payment-methods">
+                    <!-- فودافون كاش -->
+                    <div class="payment-card vodafone">
+                        <div class="payment-icon">
+                            <i class="fas fa-mobile-alt"></i>
+                        </div>
+                        <div class="payment-info">
+                            <h3>فودافون كاش</h3>
+                            <div class="payment-details">
+                                <div class="detail-item">
+                                    <i class="fas fa-phone"></i>
+                                    <span class="detail-label">الرقم:</span>
+                                    <span class="detail-value copyable" onclick="copyToClipboard('01287754157', 'رقم فودافون كاش')">01287754157</span>
+                                </div>
+                                <div class="detail-item">
+                                    <i class="fas fa-user"></i>
+                                    <span class="detail-label">الاسم:</span>
+                                    <span class="detail-value">عمر محمد</span>
+                                </div>
+                            </div>
+                            <button class="copy-btn" onclick="copyToClipboard('01287754157', 'رقم فودافون كاش')">
+                                <i class="fas fa-copy"></i> نسخ الرقم
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- اورنچ كاش -->
+                    <div class="payment-card orange">
+                        <div class="payment-icon">
+                            <i class="fas fa-wallet"></i>
+                        </div>
+                        <div class="payment-info">
+                            <h3>اورنچ كاش</h3>
+                            <div class="payment-details">
+                                <div class="detail-item">
+                                    <i class="fas fa-phone"></i>
+                                    <span class="detail-label">الرقم:</span>
+                                    <span class="detail-value copyable" onclick="copyToClipboard('01287754157', 'رقم اورنچ كاش')">01287754157</span>
+                                </div>
+                                <div class="detail-item">
+                                    <i class="fas fa-user"></i>
+                                    <span class="detail-label">الاسم:</span>
+                                    <span class="detail-value">عمر محمد</span>
+                                </div>
+                            </div>
+                            <button class="copy-btn" onclick="copyToClipboard('01287754157', 'رقم اورنچ كاش')">
+                                <i class="fas fa-copy"></i> نسخ الرقم
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="payment-alert">
+                    <i class="fas fa-exclamation-triangle"></i>
+                    <div class="alert-content">
+                        <h4>تنبيه مهم:</h4>
+                        <p>بعد التحويل، احفظ إيصال الدفع أو خذ سكرين شوت للإيصال وأرفقه في ملاحظات الطلب</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- قسم قنوات التواصل -->
+        <section class="channels-section">
+            <div class="channels-container">
+                <h2><i class="fas fa-headset"></i> قنوات التواصل والدعم</h2>
+                
+                <div class="channels-grid">
+                    <!-- قناة التليجرام -->
+                    <div class="channel-card telegram">
+                        <div class="channel-icon">
+                            <i class="fab fa-telegram"></i>
+                        </div>
+                        <div class="channel-content">
+                            <h3>قناة الطلبات</h3>
+                            <p class="channel-username">@med4009</p>
+                            <p class="channel-desc">جميع الطلبات تذهب تلقائياً للقناة للمراجعة والمتابعة</p>
+                            <a href="https://t.me/med4009" target="_blank" class="channel-btn">
+                                <i class="fab fa-telegram"></i> الدخول للقناة
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- واتساب -->
+                    <div class="channel-card whatsapp">
+                        <div class="channel-icon">
+                            <i class="fab fa-whatsapp"></i>
+                        </div>
+                        <div class="channel-content">
+                            <h3>واتساب سريع</h3>
+                            <p class="channel-username">01287754157</p>
+                            <p class="channel-desc">للإستفسارات السريعة والدعم الفوري</p>
+                            <button class="channel-btn" onclick="copyToClipboard('01287754157', 'رقم الواتساب')">
+                                <i class="fas fa-copy"></i> نسخ الرقم
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- إيميل -->
+                    <div class="channel-card email">
+                        <div class="channel-icon">
+                            <i class="fas fa-envelope"></i>
+                        </div>
+                        <div class="channel-content">
+                            <h3>البريد الإلكتروني</h3>
+                            <p class="channel-username">aljnmr706@gmail.com</p>
+                            <p class="channel-desc">للتواصل الرسمي والشكاوى والاقتراحات</p>
+                            <button class="channel-btn" onclick="copyToClipboard('aljnmr706@gmail.com', 'البريد الإلكتروني')">
+                                <i class="fas fa-copy"></i> نسخ الإيميل
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- نافذة الطلب -->
+    <div class="order-modal" id="orderModal">
+        <div class="modal-overlay" onclick="closeOrderModal()"></div>
+        <div class="modal-container">
+            <div class="modal-header">
+                <h3><i class="fas fa-file-invoice-dollar"></i> إتمام الطلب</h3>
+                <button class="modal-close" onclick="closeOrderModal()">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            
+            <div class="modal-body">
+                <div class="order-summary" id="orderSummary">
+                    <!-- سيتم ملؤها بالجافاسكريبت -->
+                </div>
+                
+                <div class="order-steps">
+                    <div class="step active">
+                        <div class="step-number">1</div>
+                        <div class="step-content">
+                            <h4>اخترت الباقة</h4>
+                            <p>تم تحديد الباقة بنجاح</p>
+                        </div>
+                    </div>
+                    <div class="step">
+                        <div class="step-number">2</div>
+                        <div class="step-content">
+                            <h4>أدخل بياناتك</h4>
+                            <p>املأ المعلومات المطلوبة</p>
+                        </div>
+                    </div>
+                    <div class="step">
+                        <div class="step-number">3</div>
+                        <div class="step-content">
+                            <h4>تأكيد الطلب</h4>
+                            <p>سيتم إرساله لقناة @med4009</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <form class="order-form" id="orderForm">
+                    <div class="form-group">
+                        <label for="robloxUsername">
+                            <i class="fas fa-user-circle"></i>
+                            اسم مستخدم Roblox
+                        </label>
+                        <input type="text" 
+                               id="robloxUsername" 
+                               placeholder="أدخل اسمك في روبلكس (بدون @)"
+                               required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="userPhone">
+                            <i class="fas fa-phone"></i>
+                            رقم هاتفك للتواصل
+                        </label>
+                        <input type="tel" 
+                               id="userPhone" 
+                               placeholder="مثال: 01012345678"
+                               pattern="^01[0125][0-9]{8}$"
+                               required>
+                        <small class="form-hint">يجب أن يكون 11 رقماً ويبدأ بـ 010/011/012/015</small>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="packType">
+                            <i class="fas fa-box"></i>
+                            نوع الباقة المختارة
+                        </label>
+                        <select id="packType" required>
+                            <option value="">-- اختر نوع الباقة --</option>
+                            <option value="normal">روبكس صافي</option>
+                            <option value="gift">جفتات</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="paymentType">
+                            <i class="fas fa-money-bill-wave"></i>
+                            طريقة الدفع المستخدمة
+                        </label>
+                        <select id="paymentType" required>
+                            <option value="">-- اختر طريقة الدفع --</option>
+                            <option value="فودافون كاش">فودافون كاش</option>
+                            <option value="اورنچ كاش">اورنچ كاش</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="orderNotes">
+                            <i class="fas fa-sticky-note"></i>
+                            ملاحظات إضافية
+                        </label>
+                        <textarea id="orderNotes" 
+                                  placeholder="رقم العملية، وقت التحويل، سكرين شوت الإيصال..."></textarea>
+                        <small class="form-hint">يرجى ذكر رقم العملية إذا كنت قد قمت بالتحويل</small>
+                    </div>
+                    
+                    <div class="transfer-instructions">
+                        <h4><i class="fas fa-info-circle"></i> تعليمات التحويل:</h4>
+                        <div class="instructions-list">
+                            <div class="instruction-item">
+                                <i class="fas fa-money-check-alt"></i>
+                                <span>قم بالتحويل على الرقم: <strong>01287754157</strong></span>
+                            </div>
+                            <div class="instruction-item">
+                                <i class="fas fa-user-tag"></i>
+                                <span>اسم المستلم: <strong>عمر محمد</strong></span>
+                            </div>
+                            <div class="instruction-item">
+                                <i class="fas fa-camera"></i>
+                                <span>احفظ إيصال الدفع أو خذ سكرين شوت</span>
+                            </div>
+                            <div class="instruction-item">
+                                <i class="fas fa-clock"></i>
+                                <span>ستصل رسالة تأكيد خلال 24 ساعة</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="channel-notice">
+                        <i class="fab fa-telegram"></i>
+                        <div>
+                            <p><strong>سيتم إرسال طلبك تلقائياً إلى قناة الطلبات:</strong></p>
+                            <p class="channel-name">@med4009</p>
+                        </div>
+                    </div>
+                    
+                    <div class="form-actions">
+                        <button type="button" class="btn btn-secondary" onclick="closeOrderModal()">
+                            <i class="fas fa-arrow-right"></i>
+                            إلغاء والعودة
+                        </button>
+                        <button type="button" class="btn btn-primary" onclick="submitOrder()">
+                            <i class="fas fa-paper-plane"></i>
+                            تأكيد وإرسال الطلب
+                        </button>
+                    </div>
+                    
+                    <div id="orderMessage" class="order-message"></div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- نافذة تأكيد الطلب -->
+    <div class="confirmation-modal" id="confirmationModal">
+        <div class="confirmation-overlay" onclick="closeConfirmationModal()"></div>
+        <div class="confirmation-container">
+            <div class="confirmation-icon">
+                <i class="fas fa-check-circle"></i>
+            </div>
+            <h3>✅ تم إرسال طلبك بنجاح!</h3>
+            
+            <div class="confirmation-details">
+                <p id="orderDetails"></p>
+                <div class="order-id-container">
+                    <i class="fas fa-hashtag"></i>
+                    <span class="order-id" id="orderId"></span>
+                </div>
+                
+                <div class="telegram-notice">
+                    <i class="fab fa-telegram"></i>
+                    <div>
+                        <p>تم إرسال الطلب إلى قناة التليجرام:</p>
+                        <p class="channel-name">@med4009</p>
+                    </div>
+                </div>
+                
+                <div class="admin-notice">
+                    <i class="fas fa-user-shield"></i>
+                    <p>سيتواصل معك الأدمن خلال 24 ساعة لتأكيد الطلب</p>
+                </div>
+            </div>
+            
+            <div class="confirmation-actions">
+                <button class="btn btn-secondary" onclick="closeConfirmationModal()">
+                    <i class="fas fa-check"></i>
+                    تم الفهم
+                </button>
+                <a href="https://t.me/med4009" target="_blank" class="btn btn-telegram">
+                    <i class="fab fa-telegram"></i>
+                    فتح قناة الطلبات
                 </a>
             </div>
         </div>
     </div>
-</section>
 
-<!-- طرق الدفع -->
-<section class="payment-section">
-    <div class="section-title">
-        <h2><i class="fas fa-credit-card"></i> طرق الدفع</h2>
-    </div>
-    
-    <div class="payment-cards">
-        <div class="payment-card vodafone">
-            <div class="payment-icon">
-                <i class="fas fa-mobile-alt"></i>
-            </div>
-            <h3>فودافون كاش</h3>
-            <p class="payment-number">01287754157</p>
-            <div class="payment-note">
-                <i class="fas fa-user"></i>
-                <span>الاسم: عمر محمد</span>
-            </div>
-        </div>
-        
-        <div class="payment-card orange">
-            <div class="payment-icon">
-                <i class="fas fa-wallet"></i>
-            </div>
-            <h3>اورنچ كاش</h3>
-            <p class="payment-number">01287754157</p>
-            <div class="payment-note">
-                <i class="fas fa-user"></i>
-                <span>الاسم: عمر محمد</span>
-            </div>
-        </div>
-    </div>
-    
-    <div class="payment-alert">
-        <i class="fas fa-exclamation-triangle"></i>
-        <p>❗ بعد التحويل، احفظ إيصال الدفع أو خذ سكرين شوت للإيصال</p>
-    </div>
-</section>
-
-<!-- باقات الروبكس الصافي -->
-<section class="packs-section">
-    <div class="section-title">
-        <h2><i class="fas fa-coins"></i> الروبكس الصافي</h2>
-        <p class="section-subtitle">أسعار خاصة للروبكس العادي - شحن فوري</p>
-    </div>
-    
-    <div class="packs-grid" id="normalPacks">
-        <!-- الباقة 100 Robux -->
-        <div class="pack-card" data-robux="100" data-type="normal">
-            <div class="pack-header">
-                <div class="pack-title">
-                    <h3>100</h3>
-                    <span class="robux-label">Robux</span>
-                </div>
-                <div class="robux-symbol">R$</div>
-            </div>
-            <div class="pack-body">
-                <div class="pack-price">
-                    <span class="coins">11 Coins</span>
-                    <span class="egp">~36 جنيه</span>
-                </div>
-                <ul class="pack-features">
-                    <li><i class="fas fa-check"></i> شحن فوري خلال 5 دقائق</li>
-                    <li><i class="fas fa-check"></i> ضمان استرجاع 100%</li>
-                    <li><i class="fas fa-check"></i> دعم فني 24/7</li>
-                </ul>
-            </div>
-            <button class="pack-select-btn" onclick="showOrderForm(100, 'normal')">
-                <i class="fas fa-shopping-cart"></i>
-                اختيار الباقة
-            </button>
-        </div>
-        
-        <!-- الباقة 250 Robux -->
-        <div class="pack-card" data-robux="250" data-type="normal">
-            <div class="pack-header">
-                <div class="pack-title">
-                    <h3>250</h3>
-                    <span class="robux-label">Robux</span>
-                </div>
-                <div class="robux-symbol">R$</div>
-            </div>
-            <div class="pack-body">
-                <div class="pack-price">
-                    <span class="coins">27.5 Coins</span>
-                    <span class="egp">~90 جنيه</span>
-                </div>
-                <ul class="pack-features">
-                    <li><i class="fas fa-check"></i> شحن فوري خلال 5 دقائق</li>
-                    <li><i class="fas fa-check"></i> ضمان استرجاع 100%</li>
-                    <li><i class="fas fa-check"></i> هدية مجانية</li>
-                </ul>
-            </div>
-            <button class="pack-select-btn" onclick="showOrderForm(250, 'normal')">
-                <i class="fas fa-shopping-cart"></i>
-                اختيار الباقة
-            </button>
-        </div>
-        
-        <!-- الباقة 500 Robux -->
-        <div class="pack-card featured" data-robux="500" data-type="normal">
-            <div class="pack-badge best">⭐ أفضل قيمة</div>
-            <div class="pack-header">
-                <div class="pack-title">
-                    <h3>500</h3>
-                    <span class="robux-label">Robux</span>
-                </div>
-                <div class="robux-symbol">R$</div>
-            </div>
-            <div class="pack-body">
-                <div class="pack-price">
-                    <span class="coins">55 Coins</span>
-                    <span class="egp">~180 جنيه</span>
-                </div>
-                <ul class="pack-features">
-                    <li><i class="fas fa-check"></i> شحن فوري خلال 5 دقائق</li>
-                    <li><i class="fas fa-check"></i> ضمان استرجاع 100%</li>
-                    <li><i class="fas fa-check"></i> دعم مميز VIP</li>
-                    <li><i class="fas fa-check"></i> خصم 10% على الطلب التالي</li>
-                </ul>
-            </div>
-            <button class="pack-select-btn featured-btn" onclick="showOrderForm(500, 'normal')">
-                <i class="fas fa-crown"></i>
-                أفضل اختيار
-            </button>
-        </div>
-        
-        <!-- الباقة 750 Robux -->
-        <div class="pack-card" data-robux="750" data-type="normal">
-            <div class="pack-header">
-                <div class="pack-title">
-                    <h3>750</h3>
-                    <span class="robux-label">Robux</span>
-                </div>
-                <div class="robux-symbol">R$</div>
-            </div>
-            <div class="pack-body">
-                <div class="pack-price">
-                    <span class="coins">82.5 Coins</span>
-                    <span class="egp">~270 جنيه</span>
-                </div>
-                <ul class="pack-features">
-                    <li><i class="fas fa-check"></i> شحن فوري خلال 5 دقائق</li>
-                    <li><i class="fas fa-check"></i> ضمان استرجاع 100%</li>
-                    <li><i class="fas fa-check"></i> أولوية في الشحن</li>
-                </ul>
-            </div>
-            <button class="pack-select-btn" onclick="showOrderForm(750, 'normal')">
-                <i class="fas fa-shopping-cart"></i>
-                اختيار الباقة
-            </button>
-        </div>
-        
-        <!-- الباقة 1000 Robux -->
-        <div class="pack-card premium" data-robux="1000" data-type="normal">
-            <div class="pack-badge vip">👑 VIP</div>
-            <div class="pack-header">
-                <div class="pack-title">
-                    <h3>1000</h3>
-                    <span class="robux-label">Robux</span>
-                </div>
-                <div class="robux-symbol">R$</div>
-            </div>
-            <div class="pack-body">
-                <div class="pack-price">
-                    <span class="coins">110 Coins</span>
-                    <span class="egp">~360 جنيه</span>
-                </div>
-                <ul class="pack-features">
-                    <li><i class="fas fa-check"></i> شحن فوري خلال 3 دقائق</li>
-                    <li><i class="fas fa-check"></i> ضمان استرجاع 200%</li>
-                    <li><i class="fas fa-check"></i> دعم فني مباشر</li>
-                    <li><i class="fas fa-check"></i> هدية خاصة بقيمة 50 Robux</li>
-                    <li><i class="fas fa-check"></i> خصم 15% دائم</li>
-                </ul>
-            </div>
-            <button class="pack-select-btn premium-btn" onclick="showOrderForm(1000, 'normal')">
-                <i class="fas fa-gem"></i>
-                باقة VIP
-            </button>
-        </div>
-    </div>
-</section>
-
-<!-- باقات الجفتات -->
-<section class="packs-section" style="margin-top: 50px;">
-    <div class="section-title">
-        <h2><i class="fas fa-gift"></i> الجفتات (بطاقات الهدايا)</h2>
-        <p class="section-subtitle">أسعار مخفضة للجفتات - شحن سريع</p>
-    </div>
-    
-    <div class="packs-grid" id="giftPacks">
-        <!-- الباقة 100 Robux -->
-        <div class="pack-card gift-card" data-robux="100" data-type="gift">
-            <div class="pack-header">
-                <div class="pack-title">
-                    <h3>100</h3>
-                    <span class="robux-label">Robux</span>
-                </div>
-                <div class="robux-symbol">🎁</div>
-            </div>
-            <div class="pack-body">
-                <div class="pack-price">
-                    <span class="coins">11 Coins</span>
-                    <span class="egp">~22 جنيه</span>
-                </div>
-                <ul class="pack-features">
-                    <li><i class="fas fa-check"></i> شحن فوري خلال 5 دقائق</li>
-                    <li><i class="fas fa-check"></i> ضمان استرجاع 100%</li>
-                    <li><i class="fas fa-check"></i> دعم فني 24/7</li>
-                </ul>
-            </div>
-            <button class="pack-select-btn gift-btn" onclick="showOrderForm(100, 'gift')">
-                <i class="fas fa-shopping-cart"></i>
-                اختيار الباقة
-            </button>
-        </div>
-        
-        <!-- الباقة 250 Robux -->
-        <div class="pack-card gift-card" data-robux="250" data-type="gift">
-            <div class="pack-header">
-                <div class="pack-title">
-                    <h3>250</h3>
-                    <span class="robux-label">Robux</span>
-                </div>
-                <div class="robux-symbol">🎁</div>
-            </div>
-            <div class="pack-body">
-                <div class="pack-price">
-                    <span class="coins">27.5 Coins</span>
-                    <span class="egp">~55 جنيه</span>
-                </div>
-                <ul class="pack-features">
-                    <li><i class="fas fa-check"></i> شحن فوري خلال 5 دقائق</li>
-                    <li><i class="fas fa-check"></i> ضمان استرجاع 100%</li>
-                    <li><i class="fas fa-check"></i> هدية مجانية</li>
-                </ul>
-            </div>
-            <button class="pack-select-btn gift-btn" onclick="showOrderForm(250, 'gift')">
-                <i class="fas fa-shopping-cart"></i>
-                اختيار الباقة
-            </button>
-        </div>
-        
-        <!-- الباقة 500 Robux -->
-        <div class="pack-card gift-card featured" data-robux="500" data-type="gift">
-            <div class="pack-badge best">⭐ أفضل قيمة</div>
-            <div class="pack-header">
-                <div class="pack-title">
-                    <h3>500</h3>
-                    <span class="robux-label">Robux</span>
-                </div>
-                <div class="robux-symbol">🎁</div>
-            </div>
-            <div class="pack-body">
-                <div class="pack-price">
-                    <span class="coins">55 Coins</span>
-                    <span class="egp">~110 جنيه</span>
-                </div>
-                <ul class="pack-features">
-                    <li><i class="fas fa-check"></i> شحن فوري خلال 5 دقائق</li>
-                    <li><i class="fas fa-check"></i> ضمان استرجاع 100%</li>
-                    <li><i class="fas fa-check"></i> دعم مميز VIP</li>
-                    <li><i class="fas fa-check"></i> خصم 10% على الطلب التالي</li>
-                </ul>
-            </div>
-            <button class="pack-select-btn gift-btn featured-btn" onclick="showOrderForm(500, 'gift')">
-                <i class="fas fa-crown"></i>
-                أفضل اختيار
-            </button>
-        </div>
-        
-        <!-- الباقة 750 Robux -->
-        <div class="pack-card gift-card" data-robux="750" data-type="gift">
-            <div class="pack-header">
-                <div class="pack-title">
-                    <h3>750</h3>
-                    <span class="robux-label">Robux</span>
-                </div>
-                <div class="robux-symbol">🎁</div>
-            </div>
-            <div class="pack-body">
-                <div class="pack-price">
-                    <span class="coins">82.5 Coins</span>
-                    <span class="egp">~165 جنيه</span>
-                </div>
-                <ul class="pack-features">
-                    <li><i class="fas fa-check"></i> شحن فوري خلال 5 دقائق</li>
-                    <li><i class="fas fa-check"></i> ضمان استرجاع 100%</li>
-                    <li><i class="fas fa-check"></i> أولوية في الشحن</li>
-                </ul>
-            </div>
-            <button class="pack-select-btn gift-btn" onclick="showOrderForm(750, 'gift')">
-                <i class="fas fa-shopping-cart"></i>
-                اختيار الباقة
-            </button>
-        </div>
-        
-        <!-- الباقة 1000 Robux -->
-        <div class="pack-card gift-card premium" data-robux="1000" data-type="gift">
-            <div class="pack-badge vip">👑 VIP</div>
-            <div class="pack-header">
-                <div class="pack-title">
-                    <h3>1000</h3>
-                    <span class="robux-label">Robux</span>
-                </div>
-                <div class="robux-symbol">🎁</div>
-            </div>
-            <div class="pack-body">
-                <div class="pack-price">
-                    <span class="coins">110 Coins</span>
-                    <span class="egp">~220 جنيه</span>
-                </div>
-                <ul class="pack-features">
-                    <li><i class="fas fa-check"></i> شحن فوري خلال 3 دقائق</li>
-                    <li><i class="fas fa-check"></i> ضمان استرجاع 200%</li>
-                    <li><i class="fas fa-check"></i> دعم فني مباشر</li>
-                    <li><i class="fas fa-check"></i> هدية خاصة بقيمة 50 Robux</li>
-                    <li><i class="fas fa-check"></i> خصم 15% دائم</li>
-                </ul>
-            </div>
-            <button class="pack-select-btn gift-btn premium-btn" onclick="showOrderForm(1000, 'gift')">
-                <i class="fas fa-gem"></i>
-                باقة VIP
-            </button>
-        </div>
-    </div>
-</section>
-
-<!-- نافذة الطلب (تظهر عند اختيار الباقة) -->
-<div class="order-modal" id="orderModal">
-    <div class="modal-content">
-        <div class="modal-header">
-            <h3><i class="fas fa-file-invoice-dollar"></i> إتمام الطلب</h3>
-            <button class="modal-close" onclick="closeOrderModal()">
-                <i class="fas fa-times"></i>
-            </button>
-        </div>
-        
-        <div class="modal-body">
-            <div class="order-summary" id="orderSummary">
-                <!-- سيتم ملؤها بالجافاسكريبت -->
+    <!-- الفوتر -->
+    <footer class="main-footer">
+        <div class="footer-container">
+            <div class="footer-logo">
+                <i class="fas fa-gamepad"></i>
+                <h3>OMAR STORE</h3>
+                <p class="footer-slogan">🎮 متجر شحن روبكس الرسمي | توصيل فوري 🎮</p>
             </div>
             
-            <div class="order-steps">
-                <div class="step active">
-                    <div class="step-number">1</div>
-                    <div class="step-content">
-                        <h4>اخترت الباقة</h4>
-                        <p>تم تحديد الباقة بنجاح</p>
-                    </div>
+            <div class="footer-links">
+                <div class="link-group">
+                    <h4>روابط سريعة</h4>
+                    <a href="#" onclick="showOrderForm(500, 'normal')">أفضل باقة</a>
+                    <a href="#" onclick="showOrderForm(1000, 'gift')">جفتات VIP</a>
+                    <a href="https://t.me/med4009" target="_blank">قناة الطلبات</a>
                 </div>
-                <div class="step">
-                    <div class="step-number">2</div>
-                    <div class="step-content">
-                        <h4>أدخل بياناتك</h4>
-                        <p>املأ المعلومات المطلوبة</p>
-                    </div>
-                </div>
-                <div class="step">
-                    <div class="step-number">3</div>
-                    <div class="step-content">
-                        <h4>تأكيد الطلب</h4>
-                        <p>سيتم إرساله لقناة @med4009</p>
-                    </div>
+                
+                <div class="link-group">
+                    <h4>معلومات</h4>
+                    <a href="#" onclick="showPrivacyPolicy()">سياسة الخصوصية</a>
+                    <a href="#" onclick="showTerms()">الشروط والأحكام</a>
+                    <a href="#" onclick="showFAQ()">الأسئلة الشائعة</a>
                 </div>
             </div>
             
-            <form class="order-form" id="orderForm">
-                <div class="form-group">
-                    <label for="robloxUsername">
-                        <i class="fas fa-user-circle"></i>
-                        اسم مستخدم Roblox
-                    </label>
-                    <input type="text" 
-                           id="robloxUsername" 
-                           placeholder="أدخل اسمك في روبلكس"
-                           required>
+            <div class="footer-contact">
+                <h4>تواصل معنا</h4>
+                <div class="contact-info">
+                    <p><i class="fab fa-whatsapp"></i> 01287754157</p>
+                    <p><i class="fas fa-envelope"></i> aljnmr706@gmail.com</p>
+                    <p><i class="fab fa-telegram"></i> @med4009</p>
                 </div>
-                
-                <div class="form-group">
-                    <label for="userPhone">
-                        <i class="fas fa-phone"></i>
-                        رقم هاتفك
-                    </label>
-                    <input type="tel" 
-                           id="userPhone" 
-                           placeholder="مثال: 01012345678"
-                           pattern="^01[0125][0-9]{8}$"
-                           required>
-                    <small class="form-hint">يجب أن يكون 11 رقماً ويبدأ بـ 010/011/012/015</small>
-                </div>
-                
-                <div class="form-group">
-                    <label for="packType">
-                        <i class="fas fa-box"></i>
-                        نوع الباقة
-                    </label>
-                    <select id="packType" required>
-                        <option value="">-- اختر نوع الباقة --</option>
-                        <option value="normal">روبكس صافي</option>
-                        <option value="gift">جفتات</option>
-                    </select>
-                </div>
-                
-                <div class="form-group">
-                    <label for="paymentType">
-                        <i class="fas fa-money-bill-wave"></i>
-                        طريقة الدفع المستخدمة
-                    </label>
-                    <select id="paymentType" required>
-                        <option value="">-- اختر طريقة الدفع --</option>
-                        <option value="فودافون كاش">فودافون كاش</option>
-                        <option value="اورنچ كاش">اورنچ كاش</option>
-                    </select>
-                </div>
-                
-                <div class="form-group">
-                    <label for="orderNotes">
-                        <i class="fas fa-sticky-note"></i>
-                        ملاحظات إضافية
-                    </label>
-                    <textarea id="orderNotes" 
-                              placeholder="رقم العملية، وقت التحويل، أي ملاحظات..."></textarea>
-                    <small class="form-hint">يرجى ذكر إذا قمت بحفظ سكرين شوت للإيصال</small>
-                </div>
-                
-                <div class="payment-instructions">
-                    <h4><i class="fas fa-info-circle"></i> تعليمات مهمة:</h4>
-                    <ul>
-                        <li>قم بالتحويل على الرقم: <strong>01287754157</strong></li>
-                        <li>اسم المستلم: <strong>عمر محمد</strong></li>
-                        <li>احفظ إيصال الدفع أو خذ سكرين شوت</li>
-                        <li>سيتم مراجعة الطلب في قناة التليجرام</li>
-                    </ul>
-                </div>
-                
-                <div class="channel-notice">
-                    <i class="fab fa-telegram"></i>
-                    <span>سيتم إرسال طلبك تلقائياً إلى قناة الطلبات: <strong>@med4009</strong></span>
-                </div>
-                
-                <div class="form-actions">
-                    <button type="button" class="btn-cancel" onclick="closeOrderModal()">
-                        <i class="fas fa-arrow-right"></i>
-                        إلغاء والعودة
-                    </button>
-                    <button type="button" class="btn-submit" onclick="submitOrder()">
-                        <i class="fas fa-paper-plane"></i>
-                        تأكيد وإرسال الطلب
-                    </button>
-                </div>
-                
-                <div id="orderMessage" class="order-message"></div>
-            </form>
+            </div>
         </div>
-    </div>
-</div>
-
-<!-- نافذة تأكيد الطلب -->
-<div class="confirmation-modal hidden" id="confirmationModal">
-    <div class="confirmation-content">
-        <div class="confirmation-icon">
-            <i class="fas fa-check-circle"></i>
+        
+        <div class="footer-bottom">
+            <p>© 2024 OMAR STORE. جميع الحقوق محفوظة.</p>
+            <p class="dev-credit">تم التطوير بواسطة <span>OMAR STORE Team</span></p>
         </div>
-        <h3>✅ تم إرسال طلبك بنجاح!</h3>
-        <div class="confirmation-details">
-            <p id="orderDetails"></p>
-            <p class="order-id" id="orderId"></p>
-            <p class="telegram-info">
-                <i class="fab fa-telegram"></i>
-                تم إرسال الطلب إلى قناة التليجرام: <strong>@med4009</strong>
-            </p>
-            <p class="admin-notice">
-                <i class="fas fa-user-shield"></i>
-                سيتواصل معك الأدمن خلال 24 ساعة
-            </p>
-        </div>
-        <div class="confirmation-actions">
-            <button class="btn-close-confirm" onclick="closeConfirmationModal()">
-                <i class="fas fa-check"></i>
-                تم الفهم
-            </button>
-            <a href="https://t.me/med4009" target="_blank" class="btn-telegram">
-                <i class="fab fa-telegram"></i>
-                فتح قناة الطلبات
-            </a>
-        </div>
-    </div>
-</div>
+    </footer>
 
-<!-- إشعارات -->
-<div class="notification-container">
-    <div class="notification" id="notification">
-        <i class="fas fa-check-circle"></i>
-        <span id="notificationText"></span>
-    </div>
-</div>
+    <!-- إشعارات -->
+    <div class="notification-container" id="notificationContainer"></div>
 
-<!-- زر التليجرام الثابت -->
-<a href="https://t.me/med4009" target="_blank" class="telegram-fab">
-    <i class="fab fa-telegram"></i>
-    <span class="tooltip">قناة الطلبات @med4009</span>
-</a>
+    <!-- زر التليجرام العائم -->
+    <a href="https://t.me/med4009" target="_blank" class="telegram-float">
+        <i class="fab fa-telegram"></i>
+        <span class="float-text">قناة الطلبات</span>
+    </a>
 
-<script src="script.js"></script>
+    <!-- زر الواتساب العائم -->
+    <a href="https://wa.me/201287754157" target="_blank" class="whatsapp-float">
+        <i class="fab fa-whatsapp"></i>
+        <span class="float-text">واتساب</span>
+    </a>
+
+    <script src="script.js"></script>
 </body>
 </html>
